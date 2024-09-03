@@ -1,7 +1,7 @@
 FROM node:lts-slim
 
 
-RUN mkdir -p /home/node/app && chown -R jenkins:jenkins /home/node/app
+RUN mkdir -p /home/node/app
 WORKDIR /home/node/app
 COPY package*.json ./
 
