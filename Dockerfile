@@ -1,13 +1,14 @@
 FROM node:lts-slim
 
-EXPOSE 3000
-WORKDIR /home/mybanez/workspace/node-app
+
+RUN mkdir -p /home/mybanez/workspace/node-app && chown -R jenkins:jenkins /home/node/app
+WORKDIR /home/node/app
 COPY package*.json ./
 
-RUN npm install -g npm
+USER jenkins
 
-COPY . /home/node/app
-
+COPY --chown=jenkins:jenkins . .
+EXPOSE 3000
 CMD ["node", "app.js"]
 
 
