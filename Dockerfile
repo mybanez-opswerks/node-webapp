@@ -5,8 +5,6 @@ RUN mkdir -p /home/node/app
 WORKDIR /home/node/app
 COPY package*.json ./
 
-USER jenkins
-
 COPY --chown=jenkins:jenkins . .
 EXPOSE 3000
 CMD ["node", "app.js"]
